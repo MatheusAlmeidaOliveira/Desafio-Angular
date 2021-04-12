@@ -1,0 +1,22 @@
+<div class="container main-container">
+    <br><br>
+    <div class="row text-center">
+        <div *ngFor="let foto of fotos | paginate: { itemsPerPage: contador, currentPage: paginaAtual }"
+            class="col-md-4" style="padding-bottom: 30px;">
+            <div class="card h-100">
+                <a class="text-decoration-none">
+                    <div style="align-content:center;">
+                        <img src="{{ foto.thumbnailUrl }}" height="164px" width="253px" alt="">
+                    </div>
+                </a>
+                <h4 class="card-title">{{ foto.title | titlecase }}</h4>
+            </div>
+        </div>
+    </div>
+    <!--inclindo o controle de paginação.-->
+    <div class="text-right">
+        <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo">
+        </pagination-controls>
+    </div>
+    <br><br><br>
+</div>
